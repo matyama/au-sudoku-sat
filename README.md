@@ -20,4 +20,5 @@ Input file format:
 Requirements:
 -------------
 - python3
+- numpy
 - [MiniSat](http://minisat.se)

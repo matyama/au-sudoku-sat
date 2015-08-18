@@ -27,7 +27,7 @@ def sudoku2sat(n, predefined):
     for x, y in product(N, N):
         cls.append([encode(x, y, v) for v in N])
 
-    # each number at most once in each column/column
+    # each number at most once in each row/column
     for k, v in product(N, N):
         for i, j in combinations(N, 2):
             cls.append([-encode(k, i, v), -encode(k, j, v)])
@@ -80,6 +80,7 @@ if __name__ == '__main__':
         print('clauses: %d\tvariables: %d' % (num_clauses, num_vars))
         sudoku.write('p cnf %d %d\n' % (num_vars, num_clauses))
         sudoku.writelines(map(lambda c: str(c).replace(',', '').strip('[]') + ' 0\n', clauses))
+	sudoku.close()
 
     call('./minisat sudoku.cnf sudoku.out', shell=True)
 
@@ -88,3 +89,4 @@ if __name__ == '__main__':
             decode = lambda idx: np.unravel_index(idx-1, (n, n, n))
             solution = map(decode, filter(lambda l: l > 0, map(int, result_file.readline().strip().split())))
             display_solution(solution)
+	    result_file.close()
