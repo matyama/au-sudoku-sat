@@ -5,7 +5,7 @@ Lab project for Automatic Reasoning (A4M33AU) course.
 
 Execution:
 ----------
-- $ python3 sudoku.py -i <input_file> -n <size>
+- $ python3 sudoku.py -i [input_file] -n [size]
 - e.g. $ python3 sudoku.py -i sudoku.in -n 9
 - both input file and size are optional parameters
 - if the input file is not specified, the sudoku is unconstrained
@@ -14,7 +14,7 @@ Execution:
 Input file format:
 ------------------
 - specifies constraints on the sudoku, i.e. default cell values
-- line record format: <row> <column> <value>
+- line record format: [row] [column] [value]
 - see *sudoku.in* as an example
 
 Requirements:
